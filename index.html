@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlFaizy | Digital Marketing & Websites for Aesthetic Doctors</title>
+    <meta name="description" content="Specialized digital marketing and web development services for medical practices. Increase patient acquisition with SEO, PPC, and conversion-optimized websites.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3c42b7;
+            --primary-dark: #331576;
+            --primary-light: #f0f4ff;
+            --secondary: #622aae;
+            --accent: #1f3892;
+            --dark: #142762;
+            --light: #ffffff;
+            --gray: #64748b;
+            --text: #334155;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+       
+        /* Loading Screen Styles */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loading-logo img {
+            width: 150px;
+            height: auto;
+            animation: dance 1s ease-in-out infinite;
+        }
+
+        @keyframes dance {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        #loading-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Improved header with gradient */
+        header {
+            padding: 1.25rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+            color: white;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        header.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: 0 10px 30px -10px rgba(20, 39, 98, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(15deg);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        /* Enhanced hero section with gradient background */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-light), white);
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 650px;
+            z-index: 2;
+        }
+        
+        .badge {
+            background-color: rgba(60, 66, 183, 0.15);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(60, 66, 183, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            color: var(--dark);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 {
+            background: linear-gradient(to right, var(--dark) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--gray);
+            font-weight: 400;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+        
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: fit-content;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-dark);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(60, 66, 183, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary::before {
+            background-color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            color: white;
+            box-shadow: 0 15px 30px -10px rgba(60, 66, 183, 0.2);
+        }
+        
+        .hero-img {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 75%;
+            z-index: 1;
+            background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 5px solid white;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            right: -10%;
+            top: -10%;
+            width: 60%;
+            height: 120%;
+            background: linear-gradient(45deg, rgba(98, 42, 174, 0.1), rgba(31, 56, 146, 0.05));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 15s linear infinite alternate;
+            z-index: 0;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            50% { border-radius: 30% 30% 70% 70% / 70% 30% 70% 30%; }
+            75% { border-radius: 70% 70% 30% 30% / 30% 70% 30% 70%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .scroll-indicator:hover {
+            background: white;
+            transform: translateX(-50%) scale(1.1);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Enhanced stats section with card gradient */
+        .stats {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, white, var(--primary-light));
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: height 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+        
+        .stat-card:hover::after {
+            height: 6px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+        
+        .stat-number span {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 0.9375rem;
+        }
+       
+        /* Logo image styling */
+        .logo img {
+            width: 40px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo hover animation */
+        .logo:hover img {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-2px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Services section improvements with gradient accents */
+        .services {
+            padding: 8rem 0;
+            background-color: var(--primary-light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: height 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+        
+        .service-card:hover::after {
+            height: 6px;
+        }
+        
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            gap: 0.75rem;
+            color: var(--secondary);
+        }
+        
+        /* Enhanced testimonials section */
+        .testimonials {
+            padding: 8rem 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: height 0.3s ease;
+        }
+        
+        .testimonial-card:hover::after {
+            height: 6px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+
+        .testimonial-content {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            flex-grow: 1;
+        }
+
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 5rem;
+            position: absolute;
+            top: -2.5rem;
+            left: -1rem;
+            color: rgba(60, 66, 183, 0.1);
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-content p {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 600;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid var(--primary-light);
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .client-position {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+            color: var(--warning);
+            margin-top: 0.5rem;
+        }
+        
+        /* Improved CTA section with gradient */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.3;
+        }
+        
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta .btn {
+            margin: 0 auto;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+            background-color: white;
+            color: var(--primary-dark);
+        }
+        
+        .cta .btn::before {
+            background-color: var(--secondary);
+        }
+        
+        .cta .btn:hover {
+            color: white;
+        }
+        
+        /* Enhanced footer with gradient */
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            color: white;
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 400px;
+            line-height: 1.7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-column h5 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        /* Process/Workflow section */
+        .process {
+            padding: 8rem 0;
+            background-color: var(--primary-light);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            opacity: 0.2;
+        }
+        
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+        
+        .step-number::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(60, 66, 183, 0.05);
+            z-index: 0;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 1200px) {
+            .hero-img {
+                right: -10%;
+                width: 55%;
+            }
+            
+            .hero-shape {
+                right: -15%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-cards, .testimonial-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-img {
+                right: -15%;
+                width: 60%;
+                opacity: 0.8;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            h1 {
+                font-size: 2.75rem;
+            }
+            
+            .section-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-img {
+                display: none;
+            }
+
+            .hero-shape {
+                opacity: 0.2;
+                width: 100%;
+                height: 100%;
+                right: 0;
+                top: 0;
+                animation: none;
+                border-radius: 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 6rem 2rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .service-cards, .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .process-steps::before {
+                left: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .badge {
+                font-size: 0.75rem;
+                padding: 0.375rem 1rem;
+            }
+            
+            .service-card, .testimonial-card {
+                padding: 1.75rem;
+            }
+            
+            .process-step {
+                padding: 1.25rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Stagger delay for elements */
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            transition-delay: 0.3s;
+        }
+        
+        .delay-3 {
+            transition-delay: 0.5s;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+        
+        /* Tooltip for stats */
+        .stat-card {
+            position: relative;
+        }
+        
+        .stat-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            z-index: 10;
+        }
+        
+        .stat-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark) transparent transparent transparent;
+        }
+        
+        .stat-card:hover .stat-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loading-logo">
+            <img src="homo.png" alt="AlFaizy Marketing Agency">
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="hooo.png" alt="AlFaizy Marketing Agency" class="logo-img">
+                    AlFaizy Marketing Agency
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="page1.html">Book Appointment</a></li>
+                    <li><a href="page2.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge fade-in delay-1"><i class="fa-solid fa-check"></i> Digital Marketing Specialist for Aesthetic Clinics</div>
+                <h1 class="fade-in delay-1">Elevate Your Brand with Custom Digital Solutions</h1>
+                <p class="tagline fade-in delay-2">In aesthetics, your digital presence isn't optional — it's everything. At AlFaizy, we don't just sell services — we build custom systems designed around your brand, your goals, and your clients.</p>
+                <div class="cta-container fade-in delay-3">
+                    <a href="page1.html" class="btn"><i class="fa-regular fa-calendar-check"></i> Book a Consultation</a>
+                    <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-arrow-right"></i> Explore Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+        <div class="hero-img"></div>
+        <a href="#stats" class="scroll-indicator" aria-label="Scroll down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">40<span>+</span></div>
+                    <div class="stat-label">Successful Projects</div>
+                    <div class="stat-tooltip">Across 12 medical specialties</div>
+                </div>
+                <div class="stat-card fade-in delay-1">
+                    <div class="stat-number">98<span>%</span></div>
+                    <div class="stat-label">Client Satisfaction</div>
+                    <div class="stat-tooltip">Based on client surveys</div>
+                </div>
+                <div class="stat-card fade-in delay-2">
+                    <div class="stat-number">32<span>%</span></div>
+                    <div class="stat-label">Average ROI Increase</div>
+                    <div class="stat-tooltip">Within first 6 months</div>
+                </div>
+                <div class="stat-card fade-in delay-3">
+                    <div class="stat-number">3<span>+</span></div>
+                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-tooltip">In healthcare marketing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle fade-in">Services</p>
+                <h2 class="section-title fade-in">Specialized Solutions for Medical Practices</h2>
+                <p class="section-description fade-in">Comprehensive digital marketing and web development services designed specifically for healthcare professionals and medical clinics.</p>
+            </div>
+            
+            <div class="service-cards">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3 class="service-title">Get Noticed with Facebook Ads</h3>
+                    <p class="service-description">We create ads that actually work — reaching the right people and turning clicks into real clients.</p>
+                    <a href="page4.html" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Crafted by Experts, Designed for Results</h3>
+                    <p class="service-description">Your website will be built by industry professionals, tailored to your patients' psychology. We design with intention, creating seamless experiences that convert visitors into loyal clients through intuitive scheduling and powerful CTAs.</p>
+                    <a href="page3.html" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle fade-in">Process</p>
+                <h2 class="section-title fade-in">Our process is broken down into 5 essential steps.</h2>
+                <p class="section-description fade-in">A strategic approach tailored specifically for healthcare providers to ensure measurable results and practice growth.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery & Assessment</h3>
+                        <p class="step-description">We start by analyzing your page and identifying the perfect audience for your brand</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Strategy Development</h3>
+                        <p class="step-description">Then, we create a clear strategy on how to attract your ideal clients — including persuasive messaging and offer angles that truly grab their attention.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Implementation</h3>
+                        <p class="step-description">After gathering the initial data, we run tests to find out which ad works best for each audience and which message drives the most results — all based on the insights we collected.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Optimization</h3>
+                        <p class="step-description">After the testing phase, we analyze the ads and study customer behavior — how they interact, what catches their attention — then optimize everything for better performance.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Reporting & Growth</h3>
+                        <p class="step-description">Transparent monthly reports with actionable insights to scale successful strategies and improve underperforming areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2 class="fade-in">Ready to Grow Your Medical Practice?</h2>
+            <p class="fade-in delay-1">Book a free 45-minute consultation to discuss how we can help your clinic attract more patients with modern digital marketing.</p>
+            <a href="page1.html" class="btn fade-in delay-2">
+                <i class="fa-regular fa-calendar-check"></i> Schedule Your Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fa-solid fa-bolt logo-icon"></i> AlFaizy Marketing</div>
+                    <p class="footer-text">We help aesthetic doctors grow their practice and attract more clients with powerful Meta advertising.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="page1.html">Book Appointment</a></li>
+                        <li><a href="page2.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="page4.html">About Marketing Services</a></li>
+                        <li><a href="page3.html">About Building Websites</a></li>
+                        <li><a href="page5.html">About Lead Tracking & Insights</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Contact Info</h5>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>help@alfaizy.online</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+964 784 770 5716</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Baghdad, IQ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <span id="current-year"></span> AlFaizy Marketing Agency. All rights reserved.</p>
+                <div class="footer-nav">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen functionality
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            
+            // First fade out
+            loadingOverlay.classList.add('fade-out');
+            
+            // Then remove from DOM after animation completes
+            setTimeout(function() {
+                loadingOverlay.remove();
+            }, 500);
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        const updateHeader = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+        
+        window.addEventListener('scroll', updateHeader);
+        updateHeader(); // Initialize on load
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fa-solid fa-xmark"></i>' 
+                    : '<i class="fa-solid fa-bars"></i>';
+            });
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const animateOnScroll = () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all animated elements except hero which activates immediately
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+            animatedElements.forEach(element => {
+                if (!element.closest('.hero')) {
+                    observer.observe(element);
+                } else {
+                    // Hero elements animate immediately
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        
+        // Tooltip functionality for stats
+        const statCards = document.querySelectorAll('.stat-card');
+        statCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const tooltip = card.querySelector('.stat-tooltip');
+                if (tooltip) {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const tooltip = card.querySelector('.stat-tooltip');
+                if (tooltip) {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                }
+            });
+        });
+        
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Alfaizy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --dark: #1f2937;
+            --darker: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--darker);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2.5rem;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -30px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            padding: 3.5rem;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--darker);
+            line-height: 1.3;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .info-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        
+        .info-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .description {
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .info-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--light);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+            background: white;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 1.1rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2), 0 2px 4px -1px rgba(79, 70, 229, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-hover), var(--primary-dark));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .alternative-contact {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .alternative-contact p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .email-link {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+        }
+        
+        .email-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .email-link:hover {
+            color: var(--primary-hover);
+        }
+        
+        .email-link:hover::after {
+            width: 100%;
+        }
+        
+        .success-message {
+            display: none;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #a7f3d0;
+            font-weight: 500;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .error-message {
+            display: none;
+            background: #fef2f2;
+            color: #b91c1c;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #fecaca;
+            font-weight: 500;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .info-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .contact-info {
+                padding: 3rem 2rem;
+            }
+            
+            .contact-card {
+                padding: 3rem 2rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info, .contact-card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+            
+            .info-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Floating label effect */
+        .floating-label-group {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .floating-label {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            color: var(--gray);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            font-weight: 500;
+            background: white;
+            padding: 0 0.5rem;
+            border-radius: 6px;
+            transform-origin: left center;
+        }
+        
+        .floating-input:focus ~ .floating-label,
+        .floating-input:not(:placeholder-shown) ~ .floating-label,
+        .floating-textarea:focus ~ .floating-label,
+        .floating-textarea:not(:placeholder-shown) ~ .floating-label {
+            top: -0.75rem;
+            left: 1rem;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            transform: scale(0.9);
+        }
+        
+        /* Loading state */
+        .btn.loading {
+            pointer-events: none;
+        }
+        
+        .btn.loading .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Input validation */
+        .error {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .input-error {
+            border-color: var(--error) !important;
+        }
+        
+        .input-success {
+            border-color: var(--success) !important;
+        }
+        
+        /* Confetti effect */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0;
+        }
+
+ /* Mobile Menu Button */
+ .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #ffce64;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 6rem 2rem;
+            transition: right 0.3s ease;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-item {
+            display: block;
+            color: #ffffff;
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-item:hover {
+            color: var(--accent);
+        }
+
+        /* Show mobile menu button on mobile */
+        @media (max-width: 991px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-btn" id="mobileMenuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+ <!-- Mobile Navigation -->
+ <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-nav-item">home</a>
+    <a href="index.html" class="mobile-nav-item">services</a>
+    <a href="page4.html" class="mobile-nav-item">process</a>
+    <a href="page1.html" class="mobile-nav-item">book appointment</a>
+    <a href="page1.html" class="mobile-nav-item">Get Started</a>
+</nav>
+
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2 class="info-title">Connect With Us</h2>
+                <p class="info-description">We're here to help and answer any questions you might have. Reach out to us through any of these channels.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p>help@alfaizy.online<br>Response time: within 24 hours</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Working Hours</h3>
+                        <p>Monday - Friday: 9AM - 6PM<br>Weekends: Limited support</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Our Location</h3>
+                        <p>123 Business Avenue<br>Tech City, TC 10001</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h1>Get in Touch</h1>
+                <p class="description">Have a question or need assistance? Fill out the form below and our team will get back to you promptly.</p>
+                
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> Thank you for your message! We've received it and will respond within 24 hours.
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> <span id="errorText">There was an error submitting your message. Please try again.</span>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="floating-label-group">
+                        <input type="text" id="name" name="name" class="floating-input" placeholder=" " required>
+                        <label for="name" class="floating-label">Your Full Name</label>
+                        <div class="error" id="nameError">Please enter your name</div>
+                    </div>
+                    
+                    <div class="floating-label-group">
+                        <input type="email" id="email" name="email" class="floating-input" placeholder=" " required>
+                        <label for="email" class="floating-label">Email Address</label>
+                        <div class="error" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="floating-label-group">
+                        <textarea id="message" name="message" class="floating-textarea" placeholder=" " required></textarea>
+                        <label for="message" class="floating-label">Your Message</label>
+                        <div class="error" id="messageError">Please enter your message</div>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="submitBtn">
+                        <span class="btn-content">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="spinner" style="display: none;"></span>
+                        </span>
+                    </button>
+                </form>
+                
+                <div class="alternative-contact">
+                    <p>Prefer direct communication?</p>
+                    <a href="mailto:help@alfaizy.online" class="email-link" id="emailAddress">
+                        <i class="fas fa-envelope"></i> help@alfaizy.online
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error states
+            document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.floating-input, .floating-textarea').forEach(el => 
+                el.classList.remove('input-error', 'input-success'));
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Validate form
+            let isValid = true;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name) {
+                document.getElementById('nameError').style.display = 'block';
+                document.getElementById('name').classList.add('input-error');
+                isValid = false;
+            }
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                document.getElementById('email').classList.add('input-error');
+                isValid = false;
+            }
+            
+            if (!message) {
+                document.getElementById('messageError').style.display = 'block';
+                document.getElementById('message').classList.add('input-error');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                document.getElementById('errorText').textContent = 'Please fill all required fields correctly';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.spinner');
+            const icon = submitBtn.querySelector('.fa-paper-plane');
+            
+            // Show loading state
+            btnText.textContent = 'Sending...';
+            icon.style.display = 'none';
+            spinner.style.display = 'inline-block';
+            submitBtn.classList.add('loading');
+            
+            // Simulate form submission (replace with actual AJAX call)
+            setTimeout(() => {
+                // Randomly simulate success or error for demo
+                const isSuccess = Math.random() > 0.2; // 80% success rate for demo
+                
+                if (isSuccess) {
+                    // Hide loading state
+                    btnText.textContent = 'Message Sent!';
+                    spinner.style.display = 'none';
+                    icon.style.display = 'inline-block';
+                    icon.className = 'fas fa-check';
+                    
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Add success state to inputs
+                    document.querySelectorAll('.floating-input, .floating-textarea').forEach(el => 
+                        el.classList.add('input-success'));
+                    
+                    // Reset form
+                    this.reset();
+                    document.querySelectorAll('.floating-label').forEach(label => {
+                        label.style.color = 'var(--gray)';
+                    });
+                    
+                    // Create confetti effect
+                    createConfetti();
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.classList.remove('loading');
+                        btnText.textContent = 'Send Message';
+                        icon.className = 'fas fa-paper-plane';
+                    }, 3000);
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                } else {
+                    // Show error state
+                    document.getElementById('errorText').textContent = 'Network error occurred. Please try again.';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    
+                    // Reset button
+                    btnText.textContent = 'Try Again';
+                    spinner.style.display = 'none';
+                    icon.style.display = 'inline-block';
+                    submitBtn.classList.remove('loading');
+                    
+                    // Scroll to error message
+                    document.getElementById('errorMessage').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }, 2000);
+        });
+        
+        // Make email address easy to copy
+        const emailLink = document.getElementById('emailAddress');
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = 'help@alfaizy.online';
+            navigator.clipboard.writeText(email).then(() => {
+                const originalHtml = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Copied to clipboard!';
+                setTimeout(() => {
+                    this.innerHTML = originalHtml;
+                }, 2000);
+            });
+        });
+        
+        // Input validation on blur
+        document.getElementById('name').addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                document.getElementById('nameError').style.display = 'block';
+                this.classList.add('input-error');
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+                this.classList.remove('input-error');
+            }
+        });
+        
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                this.classList.add('input-error');
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+                this.classList.remove('input-error');
+            }
+        });
+        
+        document.getElementById('message').addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                document.getElementById('messageError').style.display = 'block';
+                this.classList.add('input-error');
+            } else {
+                document.getElementById('messageError').style.display = 'none';
+                this.classList.remove('input-error');
+            }
+        });
+        
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#6366f1', '#4f46e5', '#8b5cf6', '#a855f7', '#d946ef'];
+            const container = document.querySelector('.contact-card');
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = -10 + 'px';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.width = Math.random() * 8 + 5 + 'px';
+                confetti.style.height = Math.random() * 8 + 5 + 'px';
+                container.appendChild(confetti);
+                
+                const animationDuration = Math.random() * 3 + 2;
+                
+                confetti.animate([
+                    { top: '-10px', opacity: 0, transform: `rotate(0deg)` },
+                    { top: '10%', opacity: 1 },
+                    { top: '100%', opacity: 0, transform: `rotate(${Math.random() * 360}deg)` }
+                ], {
+                    duration: animationDuration * 1000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+                    fill: 'forwards'
+                });
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+        }
+
+
+         // Mobile menu toggle
+         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.mobile-nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+    </script>
+</body>
+</html>
