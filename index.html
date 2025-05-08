@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlFaizy | Digital Marketing & Websites for Aesthetic Doctors</title>
-    <meta name="description" content="Specialized digital marketing and web development services for medical practices. Increase patient acquisition with SEO, PPC, and conversion-optimized websites.">
+    <meta name="description" content="Specialized digital marketing and web development services for cosmetic surgeons. Increase patient acquisition with SEO, Facebook Ads, and conversion-optimized websites.">
+    <meta name="keywords" content="cosmetic surgery marketing, aesthetic doctor website, plastic surgery SEO, medical practice advertising">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="AlFaizy | Marketing Solutions for Aesthetic Doctors">
+    <meta property="og:description" content="Grow your cosmetic practice with our specialized marketing services">
+    <meta property="og:image" content="https://alfaizyonline.github.io/web/social-preview.jpg">
+    <meta property="og:url" content="https://alfaizyonline.github.io/web/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
     <style>
         :root {
-            --primary: #3c42b7;
-            --primary-dark: #331576;
-            --primary-light: #f0f4ff;
-            --secondary: #622aae;
-            --accent: #1f3892;
-            --dark: #142762;
+            --primary: #622aae;  /* Purple */
+            --primary-dark: #4a1d8c;
+            --primary-light: #f0e6ff;
+            --secondary: #d4af37; /* Gold */
+            --accent: #a871e3;
+            --dark: #1a1a2e;
             --light: #ffffff;
             --gray: #64748b;
             --text: #334155;
@@ -182,18 +206,19 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, var(--primary-light), white);
+            text-align: center;
         }
-        
         .hero-content {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            max-width: 650px;
+            max-width: 800px;
+            margin: 0 auto;
             z-index: 2;
         }
         
         .badge {
-            background-color: rgba(60, 66, 183, 0.15);
+            background-color: rgba(98, 42, 174, 0.15);
             color: var(--primary-dark);
             padding: 0.5rem 1.25rem;
             border-radius: 100px;
@@ -203,8 +228,8 @@
             align-items: center;
             gap: 0.5rem;
             width: fit-content;
-            margin-bottom: 0.5rem;
-            border: 1px solid rgba(60, 66, 183, 0.2);
+            margin: 0 auto 0.5rem;
+            border: 1px solid rgba(98, 42, 174, 0.2);
         }
         
         h1 {
@@ -217,7 +242,7 @@
         }
         
         .hero h1 {
-            background: linear-gradient(to right, var(--dark) 0%, var(--secondary) 100%);
+            background: linear-gradient(to right, var(--dark) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -229,6 +254,7 @@
             font-weight: 400;
             max-width: 550px;
             line-height: 1.6;
+            margin: 0 auto;
         }
         
         .cta-container {
@@ -237,6 +263,7 @@
             align-items: center;
             margin-top: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .btn {
@@ -277,7 +304,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px -10px rgba(60, 66, 183, 0.4);
+            box-shadow: 0 15px 30px -10px rgba(98, 42, 174, 0.4);
         }
         
         .btn:active {
@@ -296,25 +323,22 @@
         
         .btn-secondary:hover {
             color: white;
-            box-shadow: 0 15px 30px -10px rgba(60, 66, 183, 0.2);
+            box-shadow: 0 15px 30px -10px rgba(98, 42, 174, 0.2);
         }
         
-        .hero-img {
-            position: absolute;
-            right: -5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50%;
-            height: 75%;
-            z-index: 1;
-            background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            border: 5px solid white;
+        .btn-cta {
+            background: linear-gradient(90deg, var(--secondary), #e8c547);
+            color: var(--dark);
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
         
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(212, 175, 55, 0.4);
+        }
+      
+     
         .hero-shape {
             position: absolute;
             right: -10%;
@@ -460,7 +484,11 @@
             75% { transform: translateX(-2px); }
             100% { transform: translateX(0); }
         }
-
+        @keyframes float {
+            0% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-10px); }
+            100% { transform: translateY(-50%) translateX(0); }
+        }
         /* Services section improvements with gradient accents */
         .services {
             padding: 8rem 0;
@@ -649,7 +677,7 @@
             position: absolute;
             top: -2.5rem;
             left: -1rem;
-            color: rgba(60, 66, 183, 0.1);
+            color: rgba(98, 42, 174, 0.1);
             font-family: serif;
             line-height: 1;
             z-index: 0;
@@ -964,7 +992,7 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background-color: rgba(60, 66, 183, 0.05);
+            background-color: rgba(98, 42, 174, 0.05);
             z-index: 0;
         }
         
@@ -1031,23 +1059,23 @@
             }
             
             .hero-img {
-    display: none; /* إخفاء الصورة تماماً */
-}
+                display: none;
+            }
 
-.hero-shape {
-    opacity: 0.1; /* تخفيف تأثير الشكل الخلفي */
-    background: linear-gradient(45deg, rgba(98, 42, 174, 0.05), rgba(31, 56, 146, 0.03));
-}
+            .hero-shape {
+                opacity: 0.1;
+                background: linear-gradient(45deg, rgba(98, 42, 174, 0.05), rgba(31, 56, 146, 0.03));
+            }
 
-.hero {
-    background: linear-gradient(135deg, var(--primary-light), white);
-    text-align: center; /* توسيط النص */
-}
+            .hero {
+                background: linear-gradient(135deg, var(--primary-light), white);
+                text-align: center;
+            }
 
-.hero-content {
-    max-width: 800px; /* توسيع عرض المحتوى */
-    margin: 0 auto; /* توسيط المحتوى */
-} 
+            .hero-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
             
             .nav-links {
                 position: fixed;
@@ -1273,6 +1301,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="page1.html">Book Appointment</a></li>
                     <li><a href="page2.html">Contact</a></li>
                 </ul>
@@ -1286,17 +1315,17 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="badge fade-in delay-1"><i class="fa-solid fa-check"></i> Digital Marketing Specialist for Aesthetic Clinics</div>
-                <h1 class="fade-in delay-1">Strategic Marketing Solutions for Cosmetic Practices</h1>
-                <p class="tagline fade-in delay-2">In the competitive world of aesthetic medicine, your marketing strategy can make or break your practice. We craft data-driven campaigns that attract high-value patients and maximize your ROI.</p>
+                <div class="badge fade-in delay-1"><i class="fa-solid fa-certificate"></i> Trusted by Top Cosmetic Surgeons</div>
+                <h1 class="fade-in delay-1">Premium Marketing for <span style="color: var(--secondary);">Aesthetic Practices</span></h1>
+                <p class="tagline fade-in delay-2">We help cosmetic surgeons attract high-value patients through strategic digital marketing tailored to the aesthetics industry.</p>
                 <div class="cta-container fade-in delay-3">
-                    <a href="page1.html" class="btn"><i class="fa-regular fa-calendar-check"></i> Book a Consultation</a>
-                    <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-arrow-right"></i> Explore Services</a>
+                    <a href="page1.html" class="btn btn-cta"><i class="fa-solid fa-calendar-check"></i> Free Strategy Session</a>
+                    <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-play-circle"></i> Watch Case Study</a>
                 </div>
             </div>
         </div>
         <div class="hero-shape"></div>
-        <!-- تمت إزالة hero-img -->
+        <div class="hero-img"></div>
         <a href="#stats" class="scroll-indicator" aria-label="Scroll down">
             <i class="fa-solid fa-chevron-down"></i>
         </a>
@@ -1307,8 +1336,8 @@
             <div class="stats-container">
                 <div class="stat-card fade-in">
                     <div class="stat-number">40<span>+</span></div>
-                    <div class="stat-label">Successful Projects</div>
-                    <div class="stat-tooltip">Across 12 medical specialties</div>
+                    <div class="stat-label">Cosmetic Clinics Helped</div>
+                    <div class="stat-tooltip">Specialized in aesthetic medicine</div>
                 </div>
                 <div class="stat-card fade-in delay-1">
                     <div class="stat-number">98<span>%</span></div>
@@ -1323,7 +1352,7 @@
                 <div class="stat-card fade-in delay-3">
                     <div class="stat-number">3<span>+</span></div>
                     <div class="stat-label">Years Experience</div>
-                    <div class="stat-tooltip">In healthcare marketing</div>
+                    <div class="stat-tooltip">In medical marketing</div>
                 </div>
             </div>
         </div>
@@ -1333,8 +1362,8 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle fade-in">Services</p>
-                <h2 class="section-title fade-in">Specialized Solutions for Medical Practices</h2>
-                <p class="section-description fade-in">Comprehensive digital marketing and web development services designed specifically for healthcare professionals and medical clinics.</p>
+                <h2 class="section-title fade-in">Specialized Solutions for Cosmetic Practices</h2>
+                <p class="section-description fade-in">Comprehensive digital marketing and web development services designed specifically for aesthetic doctors and cosmetic clinics.</p>
             </div>
             
             <div class="service-cards">
@@ -1342,8 +1371,8 @@
                     <div class="service-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <h3 class="service-title">Get Noticed with Facebook Ads</h3>
-                    <p class="service-description">We create ads that actually work — reaching the right people and turning clicks into real clients.</p>
+                    <h3 class="service-title">Facebook Ads for Cosmetic Surgeons</h3>
+                    <p class="service-description">We create targeted ads that reach potential patients interested in cosmetic procedures, with messaging that converts.</p>
                     <a href="page4.html" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
@@ -1351,9 +1380,90 @@
                     <div class="service-icon">
                         <i class="fa-solid fa-code"></i>
                     </div>
-                    <h3 class="service-title">Crafted by Experts, Designed for Results</h3>
-                    <p class="service-description">Your website will be built by industry professionals, tailored to your patients' psychology. We design with intention, creating seamless experiences that convert visitors into loyal clients through intuitive scheduling and powerful CTAs.</p>
+                    <h3 class="service-title">Clinic Website Development</h3>
+                    <p class="service-description">High-converting websites designed specifically for cosmetic surgeons, with before/after galleries and online booking.</p>
                     <a href="page3.html" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Reputation Management</h3>
+                    <p class="service-description">Build and maintain your online reputation with patient reviews and social proof strategies.</p>
+                    <a href="page5.html" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle fade-in">Testimonials</p>
+                <h2 class="section-title fade-in">What Our Clients Say</h2>
+                <p class="section-description fade-in">Hear from cosmetic surgeons who've transformed their practices with our marketing solutions.</p>
+            </div>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Working with AlFaizy Marketing tripled our patient inquiries. Their understanding of the cosmetic surgery market is unmatched."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/45.jpg');"></div>
+                        <div>
+                            <div class="client-name">Dr. Sarah Johnson</div>
+                            <div class="client-position">Plastic Surgeon, London</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in delay-1">
+                    <div class="testimonial-content">
+                        <p>"Our website redesign led to a 40% increase in consultation bookings. The team understands what cosmetic patients look for."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                        <div>
+                            <div class="client-name">Dr. Michael Chen</div>
+                            <div class="client-position">Aesthetic Doctor, Dubai</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in delay-2">
+                    <div class="testimonial-content">
+                        <p>"The Facebook ad campaign brought us 15 new patients for rhinoplasty in just one month. Highly recommended for cosmetic clinics!"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
+                        <div>
+                            <div class="client-name">Dr. Elena Petrova</div>
+                            <div class="client-position">Cosmetic Surgeon, Moscow</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1363,8 +1473,8 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle fade-in">Process</p>
-                <h2 class="section-title fade-in">Our process is broken down into 5 essential steps.</h2>
-                <p class="section-description fade-in">A strategic approach tailored specifically for healthcare providers to ensure measurable results and practice growth.</p>
+                <h2 class="section-title fade-in">Our 5-Step Marketing Process</h2>
+                <p class="section-description fade-in">A strategic approach tailored specifically for cosmetic practices to ensure measurable results.</p>
             </div>
             
             <div class="process-steps">
@@ -1372,7 +1482,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3 class="step-title">Discovery & Assessment</h3>
-                        <p class="step-description">We start by analyzing your page and identifying the perfect audience for your brand</p>
+                        <p class="step-description">We analyze your current marketing and identify your ideal cosmetic patient demographics.</p>
                     </div>
                 </div>
                 
@@ -1380,7 +1490,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3 class="step-title">Strategy Development</h3>
-                        <p class="step-description">Then, we create a clear strategy on how to attract your ideal clients — including persuasive messaging and offer angles that truly grab their attention.</p>
+                        <p class="step-description">Create a customized marketing plan targeting patients interested in your specific procedures.</p>
                     </div>
                 </div>
                 
@@ -1388,7 +1498,7 @@
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h3 class="step-title">Implementation</h3>
-                        <p class="step-description">After gathering the initial data, we run tests to find out which ad works best for each audience and which message drives the most results — all based on the insights we collected.</p>
+                        <p class="step-description">Launch campaigns across platforms where cosmetic patients actively research procedures.</p>
                     </div>
                 </div>
                 
@@ -1396,7 +1506,7 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3 class="step-title">Optimization</h3>
-                        <p class="step-description">After the testing phase, we analyze the ads and study customer behavior — how they interact, what catches their attention — then optimize everything for better performance.</p>
+                        <p class="step-description">Continuously refine based on patient response and conversion data.</p>
                     </div>
                 </div>
                 
@@ -1404,7 +1514,7 @@
                     <div class="step-number">5</div>
                     <div class="step-content">
                         <h3 class="step-title">Reporting & Growth</h3>
-                        <p class="step-description">Transparent monthly reports with actionable insights to scale successful strategies and improve underperforming areas.</p>
+                        <p class="step-description">Monthly reports with clear metrics and recommendations to scale successful strategies.</p>
                     </div>
                 </div>
             </div>
@@ -1413,8 +1523,8 @@
 
     <section class="cta" id="contact">
         <div class="container">
-            <h2 class="fade-in">Ready to Grow Your Medical Practice?</h2>
-            <p class="fade-in delay-1">Book a free 45-minute consultation to discuss how we can help your clinic attract more patients with modern digital marketing.</p>
+            <h2 class="fade-in">Ready to Grow Your Cosmetic Practice?</h2>
+            <p class="fade-in delay-1">Book a free 45-minute consultation to discuss how we can help your clinic attract more patients with specialized cosmetic marketing.</p>
             <a href="page1.html" class="btn fade-in delay-2">
                 <i class="fa-regular fa-calendar-check"></i> Schedule Your Free Consultation
             </a>
@@ -1426,7 +1536,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo"><i class="fa-solid fa-bolt logo-icon"></i> AlFaizy Marketing</div>
-                    <p class="footer-text">We help aesthetic doctors grow their practice and attract more clients with powerful Meta advertising.</p>
+                    <p class="footer-text">We help cosmetic doctors grow their practice and attract more patients with powerful digital marketing strategies.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -1441,6 +1551,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#process">Process</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="page1.html">Book Appointment</a></li>
                         <li><a href="page2.html">Contact</a></li>
                     </ul>
@@ -1449,9 +1560,9 @@
                 <div class="footer-column">
                     <h5>Services</h5>
                     <ul class="footer-links">
-                        <li><a href="page4.html">About Marketing Services</a></li>
-                        <li><a href="page3.html">About Building Websites</a></li>
-                        <li><a href="page5.html">About Lead Tracking & Insights</a></li>
+                        <li><a href="page4.html">Facebook Ads</a></li>
+                        <li><a href="page3.html">Website Development</a></li>
+                        <li><a href="page5.html">Reputation Management</a></li>
                     </ul>
                 </div>
                 
@@ -1615,6 +1726,18 @@
         
         // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Track button clicks
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'CTA',
+                        'event_label': this.textContent.trim()
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
