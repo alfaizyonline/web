@@ -1031,18 +1031,23 @@
             }
             
             .hero-img {
-                display: none;
-            }
+    display: none; /* إخفاء الصورة تماماً */
+}
 
-            .hero-shape {
-                opacity: 0.2;
-                width: 100%;
-                height: 100%;
-                right: 0;
-                top: 0;
-                animation: none;
-                border-radius: 0;
-            }
+.hero-shape {
+    opacity: 0.1; /* تخفيف تأثير الشكل الخلفي */
+    background: linear-gradient(45deg, rgba(98, 42, 174, 0.05), rgba(31, 56, 146, 0.03));
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--primary-light), white);
+    text-align: center; /* توسيط النص */
+}
+
+.hero-content {
+    max-width: 800px; /* توسيع عرض المحتوى */
+    margin: 0 auto; /* توسيط المحتوى */
+} 
             
             .nav-links {
                 position: fixed;
@@ -1282,8 +1287,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="badge fade-in delay-1"><i class="fa-solid fa-check"></i> Digital Marketing Specialist for Aesthetic Clinics</div>
-                <h1 class="fade-in delay-1">Elevate Your Brand with Custom Digital Solutions</h1>
-                <p class="tagline fade-in delay-2">In aesthetics, your digital presence isn't optional — it's everything. At AlFaizy, we don't just sell services — we build custom systems designed around your brand, your goals, and your clients.</p>
+                <h1 class="fade-in delay-1">Strategic Marketing Solutions for Cosmetic Practices</h1>
+                <p class="tagline fade-in delay-2">In the competitive world of aesthetic medicine, your marketing strategy can make or break your practice. We craft data-driven campaigns that attract high-value patients and maximize your ROI.</p>
                 <div class="cta-container fade-in delay-3">
                     <a href="page1.html" class="btn"><i class="fa-regular fa-calendar-check"></i> Book a Consultation</a>
                     <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-arrow-right"></i> Explore Services</a>
@@ -1291,7 +1296,7 @@
             </div>
         </div>
         <div class="hero-shape"></div>
-        <div class="hero-img"></div>
+        <!-- تمت إزالة hero-img -->
         <a href="#stats" class="scroll-indicator" aria-label="Scroll down">
             <i class="fa-solid fa-chevron-down"></i>
         </a>
