@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | [Company Name]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #7c3aed;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --dark-gray: #64748b;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .privacy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .privacy-header h1 {
+            font-size: 2.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .privacy-header p {
+            font-size: 1.15rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .privacy-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .policy-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+
+        .policy-section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .policy-section:hover::before {
+            width: 6px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            cursor: pointer;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            flex-grow: 1;
+        }
+
+        .section-content {
+            padding-left: calc(48px + 1.5rem);
+            transition: var(--transition);
+        }
+
+        .section-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .privacy-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .privacy-header {
+                margin-bottom: 3rem;
+            }
+            
+            .privacy-header h1 {
+                font-size: 2.25rem;
+            }
+
+            .policy-section {
+                padding: 2rem;
+            }
+
+            .section-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .section-content {
+                padding-left: 0;
+            }
+
+            .section-icon {
+                width: 42px;
+                height: 42px;
+                margin-right: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .privacy-container {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-header p {
+                font-size: 1.05rem;
+            }
+
+            .policy-section {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-content p {
+                font-size: 1rem;
+            }
+
+            .back-to-top {
+                width: 44px;
+                height: 44px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .privacy-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header {
+                flex-direction: row;
+            }
+
+            .section-icon {
+                margin-right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="privacy-container">
+        <header class="privacy-header">
+            <h1>Privacy Policy</h1>
+            <p>At [Company Name], we value the importance of protecting the privacy of individuals and institutions we work with.</p>
+        </header>
+
+        <div class="privacy-content">
+            <section class="policy-section">
+                <div class="section-header">
+                    <div class="section-icon">1</div>
+                    <h2 class="section-title">Nature of Information</h2>
+                </div>
+                <div class="section-content">
+                    <p>When contacting us through the website, you may provide basic details such as your name, contact information, and the type of service requested. This information is only received to facilitate communication and improve service quality, without being stored or shared beyond direct professional use.</p>
+                </div>
+            </section>
+
+            <section class="policy-section">
+                <div class="section-header">
+                    <div class="section-icon">2</div>
+                    <h2 class="section-title">Medical and Institutional Information</h2>
+                </div>
+                <div class="section-content">
+                    <p>We do not request or use any medical or detailed clinic-related information through the website or its services. Any information shared by clinics or healthcare providers is treated as confidential and is never disclosed to third parties, preserving the professional integrity of our partners.</p>
+                </div>
+            </section>
+
+            <section class="policy-section">
+                <div class="section-header">
+                    <div class="section-icon">3</div>
+                    <h2 class="section-title">Analytics and Tracking Tools</h2>
+                </div>
+                <div class="section-content">
+                    <p>This website does not use any tracking tools or digital analytics that rely on cookies or similar technologies. We are committed to transparency and user privacy, and your experience on the site does not involve any hidden data collection or monitoring mechanisms.</p>
+                </div>
+            </section>
+
+            <section class="policy-section">
+                <div class="section-header">
+                    <div class="section-icon">4</div>
+                    <h2 class="section-title">Security and Confidentiality</h2>
+                </div>
+                <div class="section-content">
+                    <p>Any information you may choose to share with us—when needed—is handled within a secure work environment, ensuring protection from unauthorized access or misuse. We are committed to maintaining the privacy of all clients who choose to communicate with us.</p>
+                </div>
+            </section>
+
+            <section class="policy-section">
+                <div class="section-header">
+                    <div class="section-icon">5</div>
+                    <h2 class="section-title">Policy Updates</h2>
+                </div>
+                <div class="section-content">
+                    <p>We may update this privacy policy from time to time in accordance with changes in our operations or applicable legal and technical requirements.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="last-updated">
+            <i class="fas fa-clock"></i> Last updated: [Insert Date]
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Optional: Accordion functionality for sections
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        
+        sectionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                const content = header.nextElementSibling;
+                
+                // Toggle the active state
+                section.classList.toggle('active');
+                
+                // If you want accordion behavior, close other sections
+                // document.querySelectorAll('.policy-section').forEach(s => {
+                //     if (s !== section) {
+                //         s.classList.remove('active');
+                //     }
+                // });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,871 +3,899 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Marketing Process | MedGrowth Solutions</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <meta name="description" content="Our professional advertising process from research to optimization">
+    <title>Premium Advertising Process | Digital Marketing Experts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
     <style>
         :root {
-            --primary: #3a86ff;
-            --primary-light: #4cc9f0;
-            --secondary: #1f59b8;
-            --accent: #ffbe5d;
-            --accent-light: #ff70a6;
-            --light: #f8f9fa;
-            --dark: #0d1117;
-            --darker: #ffffff;
-            --glass: rgba(255, 255, 255, 0.15);
-            --glass-dark: rgba(0, 0, 0, 0.15);
-            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            --gradient-light: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-            --success: #4caf50;
-            --warning: #ff9800;
-            --danger: #f44336;
+            --primary: #6e44ff;
+            --primary-light: #9d7dff;
+            --primary-dark: #4a25d4;
+            --secondary: #00f0ff;
+            --secondary-dark: #00c4d1;
+            --accent: #ff6b6b;
+            --text: #0a0a0a;
+            --text-light: #4d4d4d;
+            --bg: #ffffff;
+            --bg-secondary: #f8f9ff;
+            --dark: #0a0a0a;
+            --gray: #e0e0e0;
+            --light-gray: #f5f5f5;
+            --success: #00d46a;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.2);
+            --shadow-primary: 0 10px 30px rgba(110, 68, 255, 0.3);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.2s ease-out;
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --section-padding: 8rem 0;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --max-width: 1400px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
-            background-color: var(--darker);
-            color: var(--light);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
             line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
-        /* Header Styles */
-        header {
-            background: var(--gradient);
-            color: white;
-            padding: 6rem 0 8rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .header-content {
-            max-width: 1200px;
+        .container {
+            width: 95%;
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 1.5rem;
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            z-index: 100;
+            transition: var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
-            z-index: 2;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg));
+            padding: 6rem 0;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            background: linear-gradient(to right, white, #e0e0e0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .hero__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: radial-gradient(circle at 70% 30%, var(--primary-light), transparent 50%),
+                        radial-gradient(circle at 30% 70%, var(--secondary), transparent 50%);
+            opacity: 0.1;
         }
 
-        .subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            font-weight: 300;
+        .hero__content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            text-align: center;
             padding: 0 1rem;
         }
 
-        .scroll-hint {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
+        .hero__title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero__description {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* Process Steps */
+        .process {
+            position: relative;
+            background-color: var(--bg);
+        }
+
+        .process__step {
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            color: rgba(255, 255, 255, 0.486);
-            font-size: 0.9rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-            40% {transform: translateY(-15px) translateX(-50%);}
-            60% {transform: translateY(-8px) translateX(-50%);}
-        }
-
-        .scroll-hint i {
-            font-size: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .header-decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.3;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%233a86ff" d="M45.1,-65.2C58.1,-56.8,68.2,-42.7,73.8,-26.5C79.4,-10.3,80.5,8,74.2,23.6C67.9,39.2,54.2,52.1,38.4,60.7C22.6,69.3,4.7,73.6,-12.8,69.8C-30.3,66,-47.3,54.1,-58.2,38.6C-69.1,23.1,-73.8,4,-70.4,-13.6C-67,-31.2,-55.5,-47.3,-40.7,-55.3C-25.9,-63.3,-7.7,-63.2,9.2,-70.2C26.1,-77.2,52.2,-91.3,45.1,-65.2Z" transform="translate(100 100)" /></svg>');
-            background-size: 250px;
-            background-repeat: repeat;
-            mix-blend-mode: overlay;
-        }
-
-        /* DNA Strand Animation */
-        .dna-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.1;
+            position: relative;
             overflow: hidden;
+            padding: 4rem 0;
         }
 
-        .dna-strand {
-            position: absolute;
-            width: 3px;
-            height: 150%;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
-            left: 50%;
-            transform: translateX(-50%) rotate(10deg);
-            animation: dnaFloat 40s linear infinite;
+        .process__step:nth-child(odd) {
+            background-color: var(--bg);
         }
 
-        .dna-node {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .process__step:nth-child(even) {
+            background-color: var(--bg-secondary);
         }
 
-        @keyframes dnaFloat {
-            0% { transform: translateX(-50%) rotate(10deg) translateY(-50%); }
-            100% { transform: translateX(-50%) rotate(10deg) translateY(0); }
-        }
-
-        /* Process Container */
-        .process-container {
-            max-width: 1200px;
-            margin: -5rem auto 0;
-            padding: 5rem 1.5rem;
-            position: relative;
-            z-index: 3;
-        }
-
-        /* Process Step */
-        .process-step {
+        .step__container {
             display: flex;
-            margin-bottom: 8rem;
-            align-items: center;
-            min-height: auto;
-            position: relative;
-            opacity: 1; /* Changed from 0 to 1 to make visible by default */
-            transform: translateY(0); /* Changed from 50px to 0 */
-            transition: all 0.6s ease;
             flex-direction: column;
+            gap: 3rem;
+            position: relative;
         }
 
-        .step-content {
-            flex: 1;
-            padding: 1.5rem 0;
+        .step__content {
+            width: 100%;
+            position: relative;
             z-index: 2;
-            position: relative;
-            order: 2;
         }
 
-        .step-number {
-            font-size: 8rem;
-            font-weight: 800;
-            color: var(--primary);
-            opacity: 0.05;
-            position: absolute;
-            top: -3rem;
-            left: -1rem;
-            z-index: -1;
-            line-height: 1;
-            transition: all 0.6s ease;
-        }
-
-        .process-step.active .step-number {
-            opacity: 0.1;
-        }
-
-        .step-title {
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            margin-bottom: 1.2rem;
-            color: #331576;
-            font-weight: 700;
-            line-height: 1.3;
-            position: relative;
+        .step__number {
             display: inline-block;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg);
+            background-color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
         }
 
-        .step-title::after {
+        .step__title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .step__title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             border-radius: 2px;
         }
 
-        .step-description {
-            font-size: clamp(1rem, 1.2vw, 1.1rem);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: #142762;
-            font-weight: 300;
-        }
-
-        .step-visual {
-            flex: 1;
-            position: relative;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-            order: 1;
+        .step__description {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
             margin-bottom: 2.5rem;
-            width: 100%;
+            color: var(--text-light);
+            max-width: 600px;
+            line-height: 1.8;
         }
 
-        .visual-container {
+        .step__visual {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(145deg, #1a1d23, #23272e);
-            border-radius: 16px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            height: 400px;
+            border-radius: var(--border-radius);
             overflow: hidden;
+            box-shadow: var(--shadow-xl);
             position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: var(--light-gray);
         }
 
-        .visual-fallback {
+        .step__visual img {
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.7);
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .visual-fallback i {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+        .step__visual:hover img {
+            transform: scale(1.05);
         }
 
-        .process-step.active .visual-container {
-            transform: translateY(0) rotateX(0) rotateY(0) scale(1);
-            opacity: 1;
-        }
-
-        .lottie-animation {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Medical Dashboard */
-        .medical-dashboard {
+        /* Step Features */
+        .step__features {
             display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            gap: 1rem;
-            height: 100%;
-            padding: 1.2rem;
-            transform: scale(1); /* Changed from 0.9 to 1 */
-            opacity: 1; /* Changed from 0 to 1 */
-            transition: all 0.6s ease;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
-        .dashboard-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.2rem;
+        .feature__item {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature__item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--secondary);
+        }
+
+        .feature__icon {
+            width: 50px;
+            height: 50px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature__title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature__description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: var(--shadow-primary);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            gap: 0.5rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-dark);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn--outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn--outline::before {
+            background-color: var(--primary);
+        }
+
+        .btn--outline:hover {
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .btn--secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn--secondary::before {
+            background-color: var(--secondary-dark);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .dashboard-item::before {
+        .stats::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(58, 134, 255, 0.1) 0%, rgba(38, 103, 204, 0.1) 100%);
-            z-index: -1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.05'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        .dashboard-item:hover {
+        .stats__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .stat__item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .stat__item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        .dashboard-item.big {
-            grid-column: span 1;
-        }
-
-        .metric-value {
-            font-size: 1.8rem;
+        .stat__number {
+            font-size: 3.5rem;
             font-weight: 700;
-            color: rgb(0, 0, 0);
-            line-height: 1;
-            margin-bottom: 0.4rem;
-            background: linear-gradient(to right, white, #e0e0e0);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, white, var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .metric-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 300;
+        .stat__label {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
-        /* Patient Journey Visualization */
-        .patient-journey {
-            width: 100%;
-            height: 100%;
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
             position: relative;
-            background: #1a1d23;
-            transform: scale(1); /* Changed from 0.9 to 1 */
-            opacity: 1; /* Changed from 0 to 1 */
-            transition: all 0.6s ease;
-            padding: 1.5rem;
+            overflow: hidden;
         }
 
-        .journey-path {
-            position: absolute;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            left: 1.5rem;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
 
-        .journey-progress {
+        .testimonial-card::before {
+            content: '"';
             position: absolute;
-            height: 100%;
-            width: 0;
-            background: var(--accent);
-            border-radius: 3px;
-            transition: width 1.5s ease;
+            top: 1rem;
+            right: 2rem;
+            font-size: 5rem;
+            font-family: serif;
+            color: rgba(110, 68, 255, 0.05);
+            line-height: 1;
+            z-index: 0;
         }
 
-        .journey-milestone {
-            position: absolute;
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .client-info {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            box-shadow: 0 0 0 6px rgba(58, 134, 255, 0.2);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            z-index: 2;
+            gap: 1rem;
         }
 
-        .journey-milestone::after {
-            content: '';
-            position: absolute;
-            width: 48px;
-            height: 48px;
+        .client-avatar {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: rgba(58, 134, 255, 0.1);
-            z-index: -1;
-            animation: pulse 2s infinite;
+            object-fit: cover;
+            border: 3px solid var(--primary-light);
         }
 
-        .journey-milestone:hover {
-            transform: translate(-50%, -50%) scale(1.15);
-            box-shadow: 0 0 0 10px rgba(58, 134, 255, 0.3);
+        .client-name {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
         }
 
-        .milestone-tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
-            padding: 0.8rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            width: 200px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
+        .client-title {
             font-size: 0.9rem;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateY(8px);
+            color: var(--text-light);
         }
 
-        .journey-milestone:hover .milestone-tooltip {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Medical Data Points */
-        .data-point {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--accent);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 10;
-            box-shadow: 0 0 0 0 rgba(255, 0, 110, 0.7);
-            transform: scale(1); /* Changed from 0 to 1 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .data-point i {
-            font-size: 0.8rem;
-            color: white;
-        }
-
-        .data-point:hover {
-            transform: scale(1.3) !important;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 110, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 0, 110, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 110, 0); }
-        }
-
-        .data-tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
-            padding: 0.8rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            width: 180px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
+        .client-rating {
+            color: #ffc107;
+            margin-top: 0.3rem;
             font-size: 0.9rem;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateY(8px);
-        }
-
-        .data-tooltip h4 {
-            color: var(--accent);
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-        }
-
-        .data-point:hover .data-tooltip {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Progress tracker */
-        .progress-tracker {
-            display: none;
         }
 
         /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 8rem 1.5rem;
-            background: var(--gradient);
+        .cta {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
             color: white;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
-            margin-top: -4rem;
         }
 
-        .cta-content {
+        .cta__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, var(--secondary), transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta__container {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            transform: translateY(0); /* Changed from 50px to 0 */
-            opacity: 1; /* Changed from 0 to 1 */
-            transition: all 0.6s ease;
+            padding: 0 1rem;
         }
 
-        .cta-title {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+        .cta__title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
-        .cta-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .cta__description {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
             opacity: 0.9;
-            font-weight: 300;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 1.1rem 2.8rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            position: relative;
+        .cta__buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+            background-color: var(--bg);
+        }
+
+        .faq__container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq__item {
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius-sm);
             overflow: hidden;
-            border: none;
-            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
         }
 
-        .cta-button::before {
+        .faq__item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq__question {
+            padding: 1.5rem;
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-fast);
+        }
+
+        .faq__question:hover {
+            background-color: var(--light-gray);
+        }
+
+        .faq__question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .faq__item.active .faq__question::after {
+            content: '-';
+        }
+
+        .faq__answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--bg);
+        }
+
+        .faq__item.active .faq__answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Platform Showcase */
+        .platforms {
+            padding: 6rem 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .platform-card {
+            background: var(--bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            font-size: 2rem;
+        }
+
+        .platform-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 6rem 0 2rem;
+            position: relative;
+        }
+
+        .footer::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        .footer__content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .cta-button:hover::before {
-            opacity: 1;
+        .footer__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            display: inline-block;
         }
 
-        .cta-button:active {
-            transform: translateY(2px) scale(0.98);
+        .footer__text {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            line-height: 1.7;
         }
 
-        /* Floating shapes decoration */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            filter: blur(25px);
-        }
-
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 20%;
-            left: 10%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        .shape-2 {
-            width: 250px;
-            height: 250px;
-            background: var(--primary);
-            border-radius: 50%;
-            bottom: 10%;
-            right: 10%;
-            animation: float 18s infinite ease-in-out reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(5deg); }
-        }
-
-        /* Glass Card */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .glass-card h3 {
+        .footer__section-title {
             font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #142762;
+            margin-bottom: 1.5rem;
+            color: white;
         }
 
-        .glass-card ul {
-            list-style-type: none;
+        .footer__links {
+            list-style: none;
         }
 
-        .glass-card li {
-            position: relative;
-            padding-left: 1.8rem;
+        .footer__link {
+            display: block;
             margin-bottom: 0.8rem;
-            font-size: 1rem;
-            color: #142762;
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            text-decoration: none;
         }
 
-        .glass-card li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1.5rem;
-            line-height: 1;
+        .footer__link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
         }
 
-        /* ECG Animation */
-        .ecg-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.05;
-            overflow: hidden;
-        }
-
-        .ecg-line {
-            position: absolute;
-            height: 2px;
-            background: rgba(255,255,255,0.2);
-            width: 100%;
-            top: 50%;
-        }
-
-        .ecg-pulse {
-            position: absolute;
-            height: 80px;
-            width: 150px;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            stroke: var(--accent);
-            stroke-width: 2;
-            fill: none;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: ecgDraw 8s linear infinite;
-        }
-
-        @keyframes ecgDraw {
-            0% { stroke-dashoffset: 1000; left: 0; }
-            100% { stroke-dashoffset: 0; left: 100%; }
-        }
-
-        /* Tablet Styles */
-        @media (min-width: 768px) {
-            header {
-                padding: 7rem 0 9rem;
-            }
-            
-            .process-step {
-                margin-bottom: 10rem;
-            }
-            
-            .step-visual {
-                height: 450px;
-            }
-            
-            .medical-dashboard {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .dashboard-item.big {
-                grid-column: span 2;
-            }
-            
-            .cta-section {
-                padding: 9rem 2rem;
-                clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
-            }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 992px) {
-            header {
-                padding: 8rem 0 10rem;
-            }
-            
-            .process-step {
-                flex-direction: row;
-                margin-bottom: 12rem;
-                min-height: 100vh;
-            }
-            
-            .process-step:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-            
-            .step-content {
-                order: initial;
-                padding: 2rem;
-            }
-            
-            .step-visual {
-                order: initial;
-                margin-bottom: 0;
-                height: 550px;
-            }
-            
-            .medical-dashboard {
-                grid-template-columns: repeat(3, 1fr);
-                padding: 1.5rem;
-            }
-            
-            .dashboard-item.big {
-                grid-column: span 2;
-            }
-            
-            .progress-tracker {
-                display: flex;
-                position: fixed;
-                right: 1.5rem;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 100;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .progress-step {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.2);
-                cursor: pointer;
-                transition: all 0.3s ease;
-                position: relative;
-            }
-            
-            .progress-step.active {
-                background: var(--accent);
-                transform: scale(1.2);
-            }
-            
-            .progress-step::after {
-                content: attr(data-title);
-                position: absolute;
-                right: 20px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.9);
-                color: white;
-                padding: 0.4rem 0.8rem;
-                border-radius: 5px;
-                font-size: 0.8rem;
-                opacity: 0;
-                pointer-events: none;
-                transition: all 0.3s ease;
-                white-space: nowrap;
-            }
-            
-            .progress-step:hover::after {
-                opacity: 1;
-                right: 25px;
-            }
-            
-            .cta-section {
-                padding: 10rem 2rem;
-                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
-            }
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--darker);
-            z-index: 9999;
+        .social-links {
             display: flex;
-            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
             align-items: center;
-            flex-direction: column;
-        }
-
-        .preloader-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--accent);
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
         }
 
-        .preloader-text {
-            color: rgba(255, 255, 255, 0.7);
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer__copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
             font-size: 0.9rem;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
         }
 
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .step__container {
+                flex-direction: row;
+                align-items: center;
+                gap: 4rem;
+            }
+
+            .step__content {
+                flex: 1;
+            }
+
+            .step__visual {
+                flex: 1;
+                height: 500px;
+            }
+
+            .process__step:nth-child(even) .step__container {
+                flex-direction: row-reverse;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .process__step {
+                min-height: auto;
+                padding: 4rem 0;
+            }
+
+            .step__visual {
+                height: 300px;
+            }
+
+            .cta__buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+
+
+/* Mobile Menu Button */
+ .mobile-menu-btn {
             display: none;
             position: fixed;
             top: 1.5rem;
@@ -936,7 +964,7 @@
         }
 
         .mobile-nav-item:hover {
-            color: var(--accent);
+            color:#ce95f0;
         }
 
         /* Show mobile menu button on mobile */
@@ -948,324 +976,623 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-spinner"></div>
-        <div class="preloader-text">Loading Medical Marketing Experience...</div>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-btn" id="mobileMenuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+ <!-- Mobile Navigation -->
+ <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-nav-item">home</a>
+    <a href="index.html" class="mobile-nav-item">services</a>
+    <a href="page4.html" class="mobile-nav-item">process</a>
+    <a href="page1.html" class="mobile-nav-item">book appointment</a>
+    <a href="page1.html" class="mobile-nav-item">Get Started</a>
+</nav>
+
+
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg"></div>
+        <div class="container hero__content">
+            <h1 id="hero-title" class="hero__title fade-in">How We Professionally Craft High-Performing Ads</h1>
+            <p class="hero__description fade-in delay-1">When you partner with us, you're not just getting another ad agency - you're getting a fully customized, data-driven advertising system designed specifically to increase your clinic's bookings and revenue.</p>
+            <div class="fade-in delay-2" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#strategy" class="btn">Our Advertising Process</a>
+                <a href="page2.html" class="btn btn--outline">Get a Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <main id="main-content" class="process" aria-label="Our advertising process">
+    <script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
+
+<!-- Step 1 -->
+<section class="process__step" id="research" aria-labelledby="research-title">
+  <div class="container step__container">
+    <div class="step__content">
+      <span class="step__number fade-in">Step 1</span>
+      <h2 id="research-title" class="step__title fade-in delay-1">In-Depth Market Research</h2>
+      <p class="step__description fade-in delay-1">
+        We begin by conducting comprehensive market research to understand your competitive landscape and target audience. Our team analyzes customer behavior patterns, competitor strategies, and industry trends to identify the most effective advertising opportunities for your clinic.
+      </p>
+
+      <div class="step__features fade-in delay-1">
+        <div class="feature__item">
+          <div class="feature__icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature__title">Competitor Analysis</h3>
+          <p class="feature__description">We identify what's working (and what's not) in your competitors' ads to help you stand out.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3 class="feature__title">Audience Profiling</h3>
+          <p class="feature__description">We create detailed personas of your ideal patients to ensure our ads speak directly to them.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3 class="feature__title">Opportunity Mapping</h3>
+          <p class="feature__description">We pinpoint the most promising advertising opportunities specific to your clinic's services.</p>
+        </div>
+      </div>
+
+      <a href="#implementation" class="btn fade-in delay-2">
+        Next: Strategy Development
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <div class="mobile-menu-btn" id="mobileMenuBtn">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- Replaced image with Lottie animation -->
+    <div class="step__visual fade-in delay-2">
+      <dotlottie-player
+         loading="lazy"
+      src="https://lottie.host/0bb95dcf-fa21-4f7a-a1c9-4db8f504e072/6LtNYnSjbH.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 100%; max-width: 400px; height: auto"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </div>
+  </div>
+</section>
+
+       <!-- Step 2 -->
+<section class="process__step" id="strategy" aria-labelledby="strategy-title">
+  <div class="container step__container">
+    <div class="step__content">
+      <span class="step__number fade-in">Step 2</span>
+      <h2 id="strategy-title" class="step__title fade-in delay-1">Data-Driven Strategy Development</h2>
+      <p class="step__description fade-in delay-1">Using insights from our research, we craft a customized advertising strategy designed to maximize your clinic's bookings...</p>
+
+      <div class="step__features fade-in delay-1">
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-comment-alt"></i></div>
+          <h3 class="feature__title">Message Development</h3>
+          <p class="feature__description">We craft compelling ad copy that resonates with your target patients' needs and desires.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-bullseye"></i></div>
+          <h3 class="feature__title">Precision Targeting</h3>
+          <p class="feature__description">We use advanced targeting parameters to reach your ideal patients with surgical precision.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-coins"></i></div>
+          <h3 class="feature__title">Smart Budget Allocation</h3>
+          <p class="feature__description">We distribute your budget strategically to maximize ROI across platforms and campaigns.</p>
+        </div>
+      </div>
+
+      <a href="#optimization" class="btn fade-in delay-2">
+        Next: Campaign Implementation
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html" class="mobile-nav-item">home</a>
-        <a href="index.html" class="mobile-nav-item">services</a>
-        <a href="page1.html" class="mobile-nav-item">book appointment</a>
-        <a href="page2.html" class="mobile-nav-item">contact</a>
-        <a href="page1.html" class="mobile-nav-item">Get Started</a>
-    </nav>
+    <!-- 👇 This is where you insert the animation -->
+    <div class="step__visual fade-in delay-2">
+      <dotlottie-player
+       loading="lazy"
+      src="https://lottie.host/8b524a4c-fe37-41ee-9aad-b4d727f99505/6ZfxgwkfJ3.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 100%; max-width: 300px; height: 300px"
+        loop
+        autoplay>
+      </dotlottie-player>
+    </div>
+  </div>
+</section>
 
-    <header>
-        <div class="header-decoration"></div>
-        <div class="dna-animation" id="dnaAnimation"></div>
-        <div class="ecg-animation">
-            <div class="ecg-line"></div>
-            <svg class="ecg-pulse" viewBox="0 0 200 100" preserveAspectRatio="none">
-                <path d="M0,50 L20,50 L25,20 L35,80 L45,50 L200,50" />
-            </svg>
-        </div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
-        <div class="header-content">
-            <h1>Precision Medical Marketing</h1>
-            <p class="subtitle">A scientifically-optimized approach to growing your healthcare practice with data-driven patient acquisition</p>
-        </div>
-        <div class="scroll-hint">
-            <i class="fas fa-chevron-down"></i>
-            <span>Scroll to explore</span>
-        </div>
-    </header>
+<!-- Step 3 -->
+<section class="process__step" id="implementation" aria-labelledby="implementation-title">
+  <div class="container step__container">
+    <div class="step__content">
+      <span class="step__number fade-in">Step 3</span>
+      <h2 id="implementation-title" class="step__title fade-in delay-1">Strategic Campaign Implementation</h2>
+      <p class="step__description fade-in delay-1">
+        We launch multiple ad variations across selected platforms, continuously monitoring performance from day one...
+      </p>
 
-    <!-- Progress Tracker (visible only on desktop) -->
-    <div class="progress-tracker" id="progressTracker">
-        <div class="progress-step" data-title="Patient Analysis" data-target="step1"></div>
-        <div class="progress-step" data-title="Clinical Strategy" data-target="step2"></div>
-        <div class="progress-step" data-title="Campaign Testing" data-target="step3"></div>
-        <div class="progress-step" data-title="Treatment Optimization" data-target="step4"></div>
-        <div class="progress-step" data-title="Practice Growth" data-target="step5"></div>
+      <div class="step__features fade-in delay-1">
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-ad"></i></div>
+          <h3 class="feature__title">Multivariate Testing</h3>
+          <p class="feature__description">We test different ad creatives, copy variations, and CTAs to determine what resonates best.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-chart-pie"></i></div>
+          <h3 class="feature__title">Performance Tracking</h3>
+          <p class="feature__description">We monitor key metrics like CTR, conversion rates, and cost per acquisition in real-time.</p>
+        </div>
+        <div class="feature__item">
+          <div class="feature__icon"><i class="fas fa-lightbulb"></i></div>
+          <h3 class="feature__title">Insight Generation</h3>
+          <p class="feature__description">We analyze what's working to double down on success and eliminate underperforming elements.</p>
+        </div>
+      </div>
+
+      <a href="#reporting" class="btn fade-in delay-2">
+        Next: Continuous Optimization
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
 
-    <div class="process-container">
-        <!-- Step 1: Patient Analysis -->
-        <div class="process-step" id="step1">
-            <div class="step-content">
-                <span class="step-number">1</span>
-                <h2 class="step-title">Comprehensive Patient Analysis</h2>
-                <p class="step-description">
-                    We begin with an in-depth analysis of your ideal patients using healthcare-specific data models. 
-                    Our proprietary algorithms analyze demographic patterns, treatment histories, and healthcare 
-                    behaviors to identify patients most likely to benefit from your services.
-                </p>
-                <div class="glass-card">
-                    <h3>Key Insights We Uncover:</h3>
-                    <ul>
-                        <li>Patient demographics (age, location, insurance status)</li>
-                        <li>Common health concerns and treatment preferences</li>
-                        <li>Competitor analysis in your local healthcare market</li>
-                        <li>Optimal communication channels for patient outreach</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="step-visual">
-                <div class="visual-container" id="lottie-patient-analysis">
-                    <div class="visual-fallback">
-                        <i class="fas fa-user-md"></i>
-                        <h3>Patient Analysis</h3>
-                        <p>Illustration showing doctor reviewing patient data</p>
-                    </div>
-                </div>
-                <!-- Interactive data points -->
-                <div class="data-point" style="top: 30%; left: 40%;" data-tooltip="Patient Demographics">
-                    <i class="fas fa-user-injured"></i>
-                    <div class="data-tooltip">
-                        <h4>Patient Profile</h4>
-                        <p>Detailed breakdown of your ideal patient's age, gender, location, insurance coverage and common health conditions</p>
-                    </div>
-                </div>
-                <div class="data-point" style="top: 60%; left: 20%;" data-tooltip="Health Concerns">
-                    <i class="fas fa-notes-medical"></i>
-                    <div class="data-tooltip">
-                        <h4>Health Concerns</h4>
-                        <p>Most frequent patient inquiries and treatment interests in your specialty area</p>
-                    </div>
-                </div>
-                <div class="data-point" style="top: 50%; left: 70%;" data-tooltip="Market Position">
-                    <i class="fas fa-clinic-medical"></i>
-                    <div class="data-tooltip">
-                        <h4>Market Position</h4>
-                        <p>How your practice compares to competitors in patient satisfaction and services offered</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 2: Clinical Strategy -->
-        <div class="process-step" id="step2">
-            <div class="step-content">
-                <span class="step-number">2</span>
-                <h2 class="step-title">Clinical Strategy Development</h2>
-                <p class="step-description">
-                    We develop evidence-based marketing strategies tailored to medical professionals. Our clinical 
-                    messaging framework ensures all communications are accurate, ethical, and compliant with 
-                    healthcare regulations while effectively converting prospective patients.
-                </p>
-                <div class="glass-card">
-                    <h3>Our Clinical Marketing Approach:</h3>
-                    <ul>
-                        <li>Educational content that addresses patient health concerns</li>
-                        <li>Trust-building with physician credentials and patient success stories</li>
-                        <li>Clear explanations of treatment processes and health benefits</li>
-                        <li>Compliance with HIPAA and healthcare advertising regulations</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="step-visual">
-                <div class="visual-container" id="lottie-medical-strategy">
-                    <div class="visual-fallback">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Strategy Development</h3>
-                        <p>Illustration showing marketing strategy planning</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 3: Campaign Testing -->
-        <div class="process-step" id="step3">
-            <div class="step-content">
-                <span class="step-number">3</span>
-                <h2 class="step-title">Clinical Campaign Testing</h2>
-                <p class="step-description">
-                    We implement a rigorous testing protocol modeled after clinical trials. Multiple campaign 
-                    variations are tested to determine what resonates best with your target patients while 
-                    maintaining medical accuracy and ethical standards.
-                </p>
-                <div class="glass-card">
-                    <h3>Our Testing Protocol:</h3>
-                    <ul>
-                        <li>4-6 different patient audience segments</li>
-                        <li>3-5 educational message variations</li>
-                        <li>Multiple physician-approved call-to-action approaches</li>
-                        <li>Continuous compliance monitoring at all stages</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="step-visual">
-                <div class="visual-container">
-                    <div class="medical-dashboard">
-                        <div class="dashboard-item big">
-                            <span class="metric-value">3.2%</span>
-                            <span class="metric-label">Conversion Rate (Educational Approach)</span>
-                            <div class="progress-bar" style="background: linear-gradient(to right, var(--primary), var(--success)); height: 4px; width: 80%; margin-top: 0.5rem;"></div>
-                        </div>
-                        <div class="dashboard-item">
-                            <span class="metric-value">1.8%</span>
-                            <span class="metric-label">Conversion Rate (Promotional)</span>
-                            <div class="progress-bar" style="background: linear-gradient(to right, var(--primary), var(--warning)); height: 4px; width: 45%; margin-top: 0.5rem;"></div>
-                        </div>
-                        <div class="dashboard-item">
-                            <span class="metric-value">42%</span>
-                            <span class="metric-label">Engagement with Credentials</span>
-                            <div class="progress-bar" style="background: linear-gradient(to right, var(--primary), var(--success)); height: 4px; width: 42%; margin-top: 0.5rem;"></div>
-                        </div>
-                        <div class="dashboard-item">
-                            <span class="metric-value">68%</span>
-                            <span class="metric-label">Preference for Video</span>
-                            <div class="progress-bar" style="background: linear-gradient(to right, var(--primary), var(--success)); height: 4px; width: 68%; margin-top: 0.5rem;"></div>
-                        </div>
-                        <div class="dashboard-item big">
-                            <span class="metric-value">2.5x</span>
-                            <span class="metric-label">Higher ROI Than Average</span>
-                            <div class="progress-bar" style="background: linear-gradient(to right, var(--primary), var(--success)); height: 4px; width: 100%; margin-top: 0.5rem;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 4: Treatment Optimization -->
-        <div class="process-step" id="step4">
-            <div class="step-content">
-                <span class="step-number">4</span>
-                <h2 class="step-title">Treatment Pathway Optimization</h2>
-                <p class="step-description">
-                    We analyze patient engagement at each step of their healthcare journey. Using medical-specific 
-                    metrics, we optimize every touchpoint to improve patient conversion while maintaining the 
-                    highest standards of medical ethics and compliance.
-                </p>
-                <div class="glass-card">
-                    <h3>Optimization Focus Areas:</h3>
-                    <ul>
-                        <li>Patient education content performance by specialty</li>
-                        <li>Appointment booking conversion paths</li>
-                        <li>Response patterns by treatment type and urgency</li>
-                        <li>Budget allocation for maximum patient acquisition</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="step-visual">
-                <div class="visual-container">
-                    <div class="patient-journey" id="patient-journey-visual">
-                        <div class="journey-path">
-                            <div class="journey-progress"></div>
-                        </div>
-                        <div class="journey-milestone" style="left: 10%;">
-                            <i class="fas fa-search"></i>
-                            <div class="milestone-tooltip">
-                                <h4>Awareness Phase</h4>
-                                <p>Patient discovers your practice through targeted healthcare ads and begins researching treatment options</p>
-                            </div>
-                        </div>
-                        <div class="journey-milestone" style="left: 30%;">
-                            <i class="fas fa-book-medical"></i>
-                            <div class="milestone-tooltip">
-                                <h4>Education Phase</h4>
-                                <p>Patient engages with your educational content about symptoms, treatments, and outcomes</p>
-                            </div>
-                        </div>
-                        <div class="journey-milestone" style="left: 50%;">
-                            <i class="fas fa-calendar-check"></i>
-                            <div class="milestone-tooltip">
-                                <h4>Consideration Phase</h4>
-                                <p>Patient books a consultation after reviewing physician credentials and patient testimonials</p>
-                            </div>
-                        </div>
-                        <div class="journey-milestone" style="left: 70%;">
-                            <i class="fas fa-user-md"></i>
-                            <div class="milestone-tooltip">
-                                <h4>Treatment Phase</h4>
-                                <p>Patient completes initial appointment and begins treatment plan</p>
-                            </div>
-                        </div>
-                        <div class="journey-milestone" style="left: 90%;">
-                            <i class="fas fa-heart"></i>
-                            <div class="milestone-tooltip">
-                                <h4>Loyalty Phase</h4>
-                                <p>Patient returns for follow-up care and refers others to your practice</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 5: Practice Growth -->
-        <div class="process-step" id="step5">
-            <div class="step-content">
-                <span class="step-number">5</span>
-                <h2 class="step-title">Sustainable Practice Growth</h2>
-                <p class="step-description">
-                    You receive comprehensive medical marketing reports showing exactly what's working in your patient 
-                    acquisition. We provide physician-specific insights and data-driven recommendations for scaling 
-                    your successful campaigns while maintaining clinical excellence.
-                </p>
-                <div class="glass-card">
-                    <h3>Our Medical Reporting Includes:</h3>
-                    <ul>
-                        <li>Patient acquisition metrics and health trends</li>
-                        <li>Cost-per-new-patient analysis by specialty</li>
-                        <li>ROI calculations and growth projections</li>
-                        <li>Scaled budget recommendations for practice expansion</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="step-visual">
-                <div class="visual-container" id="lottie-practice-growth">
-                    <div class="visual-fallback">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Practice Growth</h3>
-                        <p>Illustration showing practice growth metrics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- 👇 تم استبدال الصورة بالـ Lottie animation -->
+    <div class="step__visual fade-in delay-2">
+      <dotlottie-player
+       loading="lazy"
+      src="https://lottie.host/d0d1faa0-34f9-4434-af5a-cc3664b111a5/H4W4s92eFv.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 100%; max-width: 300px; height: 300px"
+        loop
+        autoplay>
+      </dotlottie-player>
     </div>
+  </div>
+</section>
 
-    <!-- CTA Section -->
-    <div class="cta-section" id="cta">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
-        <div class="cta-content" id="ctaContent">
-            <h2 class="cta-title">Ready to Grow Your Medical Practice?</h2>
-            <p class="cta-subtitle">Schedule a consultation with our healthcare marketing specialists to develop your customized patient acquisition strategy</p>
-            <a href="#contact" class="cta-button">Book Your Consultation <i class="fas fa-arrow-right"></i></a>
-        </div>
+
+        <!-- Step 4 -->
+        <section class="process__step" id="optimization" aria-labelledby="optimization-title">
+            <div class="container step__container">
+                <div class="step__content">
+                    <span class="step__number fade-in">Step 4</span>
+                    <h2 id="optimization-title" class="step__title fade-in delay-1">Data-Driven Optimization</h2>
+                    <p class="step__description fade-in delay-1">Using performance data, we continuously refine and improve your campaigns. We adjust targeting, creative elements, and bidding strategies to maximize results while minimizing ad spend waste.</p>
+                    
+                    <div class="step__features fade-in delay-1">
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h3 class="feature__title">Creative Optimization</h3>
+                            <p class="feature__description">We refine ad visuals and messaging based on what generates the best response.</p>
+                        </div>
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3 class="feature__title">Audience Refinement</h3>
+                            <p class="feature__description">We narrow targeting to focus on the highest-converting audience segments.</p>
+                        </div>
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h3 class="feature__title">Budget Reallocation</h3>
+                            <p class="feature__description">We shift budget to top-performing campaigns and pause underperforming ones.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#results" class="btn fade-in delay-2">
+                        Next: Performance Reporting
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+              <!-- 👇 تم استبدال الصورة بالـ Lottie animation -->
+   <dotlottie-player
+   loading="lazy"
+   src="https://lottie.host/284918a4-8012-4e09-adee-8d3f949a1d7b/WWcbcn9qzE.lottie"
+  background="transparent"
+  speed="1"
+  style="width: 400px; height: 400px"
+  loop
+  autoplay
+></dotlottie-player>
     </div>
+  </div>
+</section>
+    
+        <!-- Step 5 -->
+        <section class="process__step" id="reporting" aria-labelledby="reporting-title">
+            <div class="container step__container">
+                <div class="step__content">
+                    <span class="step__number fade-in">Step 5</span>
+                    <h2 id="reporting-title" class="step__title fade-in delay-1">Transparent Performance Reporting</h2>
+                    <p class="step__description fade-in delay-1">We provide comprehensive, easy-to-understand reports that show exactly how your campaigns are performing. Our team walks you through the results, explaining what's working and how we plan to improve further.</p>
+                    
+                    <div class="step__features fade-in delay-1">
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3 class="feature__title">Performance Metrics</h3>
+                            <p class="feature__description">Clear reporting on impressions, clicks, conversions, and cost per acquisition.</p>
+                        </div>
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="feature__title">Actionable Insights</h3>
+                            <p class="feature__description">Data-driven recommendations for improving future campaign performance.</p>
+                        </div>
+                        <div class="feature__item">
+                            <div class="feature__icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <h3 class="feature__title">Growth Planning</h3>
+                            <p class="feature__description">Strategic recommendations for scaling successful campaigns.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#results" class="btn fade-in delay-2">
+                        See Our Results
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            <dotlottie-player
+  src="https://lottie.host/4797b805-cf68-4541-ac1f-25f85502b805/7MvTka8H1i.lottie"
+     loading="lazy"
+  background="transparent"
+  speed="1"
+  style="width: 300px; height: 300px"
+  loop
+  autoplay
+></dotlottie-player>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Results Section -->
+    <section class="stats" id="results" aria-labelledby="results-title">
+        <div class="container">
+            <h2 id="results-title" class="section-title fade-in" style="color: white;">Proven Advertising Results</h2>
+            <p class="section-description fade-in delay-1" style="color: rgba(255,255,255,0.9); margin-bottom: 4rem;">Our data-driven approach delivers measurable success for medical clinics</p>
+            
+            <div class="stats__container">
+                <div class="stat__item fade-in delay-1">
+                    <div class="stat__number">72%</div>
+                    <div class="stat__label">Average Increase in Patient Inquiries</div>
+                </div>
+                <div class="stat__item fade-in delay-2">
+                    <div class="stat__number">4.9/5</div>
+                    <div class="stat__label">Client Satisfaction Rating</div>
+                </div>
+                <div class="stat__item fade-in delay-3">
+                    <div class="stat__number">35%</div>
+                    <div class="stat__label">Lower Cost Per Acquisition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="platforms" aria-labelledby="platforms-title">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 id="platforms-title" class="section-title">Our Advertising Platforms</h2>
+                <p class="section-description">We specialize in these high-performance advertising channels</p>
+            </div>
+            
+            <div class="platforms-grid">
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <i class="fab fa-meta"></i>
+                    </div>
+                    <h3 class="platform-name">meta Ads</h3>
+                    <p class="platform-description">Precision targeting to reach potential patients where they spend their time online.</p>
+                </div>
+            
+                    </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 id="testimonials-title" class="section-title">Clinic Success Stories</h2>
+                <p class="section-description">Don't just take our word for it - hear from satisfied clinic owners</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "After struggling with ineffective ads for years, this team transformed our patient acquisition. Their strategic approach delivered a 68% increase in bookings within just 3 months, with a lower cost per patient than we'd ever achieved before."
+                    </div>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Dr. Sarah Johnson" class="client-avatar" loading="lazy">
+                        <div>
+                            <div class="client-name">Dr. zaid shakir</div>
+                            <div class="client-title">Owner, zaid shakir Clinic</div>
+                            <div class="client-rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in delay-1">
+                    <div class="testimonial-content">
+                        "The detailed audience research and continuous optimization made all the difference. Our ads now attract higher-quality patients who are genuinely interested in our services, not just price shoppers."
+                    </div>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen" class="client-avatar" loading="lazy">
+                        <div>
+                            <div class="client-name">Dr. hussein safa</div>
+                            <div class="client-title">Owner, zozaya clinic</div>
+                            <div class="client-rating">★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" aria-labelledby="faq-title">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">Answers to common questions about our advertising services</p>
+            </div>
+            
+            <div class="faq__container">
+                <div class="faq__item fade-in">
+                    <div class="faq__question">
+                        How quickly will we see results from your advertising?
+                    </div>
+                    <div class="faq__answer">
+                        <p>Most clinics begin seeing measurable results within 30 days. The first 2-3 weeks involve testing different approaches to identify what works best for your specific practice. After this optimization period, we typically see consistent growth in qualified patient inquiries. Some clients see results even sooner, depending on their market and services.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item fade-in delay-1">
+                    <div class="faq__question">
+                        What's your minimum budget requirement?
+</div>
+<div class="faq__answer">
+    <p>We don’t have a fixed minimum ad spend. During the consultation, we’ll recommend an optimal monthly budget based on key details like your practice size, the services you offer, and your market competition. This ensures we tailor the strategy to your specific needs and goals.</p>
+</div></p>
+                    </div>
+                </div>
+                
+                <div class="faq__item fade-in delay-2">
+                    <div class="faq__question">
+                        How do you measure success for our campaigns?
+                    </div>
+                    <div class="faq__answer">
+                        <p>We track multiple key performance indicators (KPIs) including cost per lead, lead quality, conversion rates, and ultimately, cost per new patient. Our primary focus is on driving actual booked appointments, not just clicks or impressions. We provide detailed monthly reports showing exactly how many new patients each campaign generated and at what cost.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item fade-in delay-3">
+                    <div class="faq__question">
+                        Do you work with specific medical specialties?
+                    </div>
+                    <div class="faq__answer">
+                        <p>Yes, we specialize exclusively in advertising for cosmetic and aesthetic medical practices. Our strategies are tailored to the unique challenges and opportunities of patient acquisition in the cosmetic field, helping you attract the right clients and grow your practice effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__bg"></div>
+        <div class="container cta__container">
+            <h2 id="cta-title" class="cta__title fade-in">Ready to Fill Your Schedule With Ideal Patients?</h2>
+            <p class="cta__description fade-in delay-1">Let's discuss how our data-driven advertising approach can grow your practice.</p>
+            <div class="cta__buttons fade-in delay-2">
+                <a href="page1.html" class="btn btn--secondary">
+                    <i class="fas fa-calendar-alt"></i>
+                    Book a Free Strategy Session
+                </a>
+                <a href="tel:+964 784 770 5716" class="btn btn--outline">
+                    <i class="fas fa-phone"></i>
+                    Call +964 784 770 5716
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <a href="#" class="footer__logo">Alfaizy online</a>
+                    <p class="footer__text">Specialized advertising solutions for medical practices that deliver real patient growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Our Services</h3>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Facebook/Instagram Ads</a></li>
+                        <li><a href="#" class="footer__link">Landing Page Design</a></li>
+                        <li><a href="#" class="footer__link">Conversion Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html" class="footer__link">Home</a></li>
+                        <li><a href="page1.html" class="footer__link">Book Appointment</a></li>
+
+                        <li><a href="page2.html" class="footer__link">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section" id="contact">
+                    <h3 class="footer__section-title">Contact Us</h3>
+                    <p class="footer__text"><i class="fas fa-map-marker-alt"></i>Baghdad, IQ</p>
+                    <p class="footer__text"><i class="fas fa-phone"></i>+964 784 770 5716</p>
+                    <p class="footer__text"><i class="fas fa-envelope"></i> help@alfaizy.online</p>
+                  
+                </div>
+            </div>
+            
+            <div class="footer__copyright">
+                <p>&copy; 2023 AdvertiseMD. All rights reserved. <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
+        // Simple fade-in animation as elements come into view
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide preloader when page loads
-            setTimeout(() => {
-                gsap.to("#preloader", {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => {
-                        document.getElementById("preloader").style.display = "none";
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, 1500);
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.8s ease-out';
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq__item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq__question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq__answer').style.maxHeight = '0';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    const answer = item.querySelector('.faq__answer');
+                    
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        answer.style.maxHeight = '0';
+                    }
+                });
+            });
+            
+            // Lazy loading for images
+            if ('loading' in HTMLImageElement.prototype) {
+                // Native lazy loading is supported
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            } else {
+                // Fallback for browsers without native lazy loading
+                const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    lazyLoadObserver.observe(img);
+                });
+            }
+        });
 
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+          // Mobile menu toggle
+         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
             
             mobileMenuBtn.addEventListener('click', function() {
@@ -1280,233 +1607,6 @@
                     mobileNav.classList.remove('active');
                 });
             });
-
-            // Create DNA strand animation
-            const dnaContainer = document.getElementById('dnaAnimation');
-            const nodeCount = 20;
-            const strandCount = 3;
-            
-            for (let s = 0; s < strandCount; s++) {
-                const strand = document.createElement('div');
-                strand.classList.add('dna-strand');
-                strand.style.left = `${10 + (s * 40)}%`;
-                strand.style.animationDelay = `${s * 2}s`;
-                
-                for (let i = 0; i < nodeCount; i++) {
-                    const node = document.createElement('div');
-                    node.classList.add('dna-node');
-                    node.style.top = `${(i / nodeCount) * 100}%`;
-                    node.style.opacity = 0.3 + (Math.random() * 0.7);
-                    strand.appendChild(node);
-                }
-                
-                dnaContainer.appendChild(strand);
-            }
-
-            // Initialize GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Animate process steps on scroll
-            gsap.utils.toArray('.process-step').forEach((step, i) => {
-                // Make step visible by default (already changed in CSS)
-                step.classList.add('active');
-
-                ScrollTrigger.create({
-                    trigger: step,
-                    start: "top 70%",
-                    onEnter: () => step.classList.add('active'),
-                    onLeaveBack: () => step.classList.remove('active'),
-                    markers: false
-                });
-
-                // Stagger animations for elements within each step
-                gsap.from(step.querySelectorAll('.step-title, .step-description, .glass-card li'), {
-                    opacity: 0,
-                    y: 20,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    scrollTrigger: {
-                        trigger: step,
-                        start: "top 80%",
-                        toggleActions: "play none none none"
-                    }
-                });
-            });
-
-            // Animate patient journey visualization
-            const patientJourney = document.querySelector('.patient-journey');
-            const journeyProgress = patientJourney.querySelector('.journey-progress');
-            
-            ScrollTrigger.create({
-                trigger: "#step4",
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => gsap.to(journeyProgress, { width: "100%", duration: 2, ease: "power2.inOut" }),
-                onLeaveBack: () => gsap.to(journeyProgress, { width: "0%", duration: 0.5 })
-            });
-
-            // Animate CTA section
-            ScrollTrigger.create({
-                trigger: "#cta",
-                start: "top 70%",
-                onEnter: () => document.getElementById('ctaContent').classList.add('active'),
-                onLeaveBack: () => document.getElementById('ctaContent').classList.remove('active')
-            });
-
-            // Progress tracker functionality (desktop only)
-            const progressSteps = document.querySelectorAll('.progress-step');
-            
-            progressSteps.forEach(step => {
-                const target = step.getAttribute('data-target');
-                
-                step.addEventListener('click', () => {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: `#${target}`, offsetY: 100 },
-                        ease: "power2.inOut"
-                    });
-                });
-            });
-
-            // Update progress tracker on scroll (desktop only)
-            if(window.innerWidth >= 992) {
-                ScrollTrigger.create({
-                    trigger: ".process-container",
-                    start: "top 50%",
-                    end: "bottom bottom",
-                    onUpdate: (self) => {
-                        const scrollPosition = self.scroll();
-                        
-                        progressSteps.forEach(step => {
-                            const target = step.getAttribute('data-target');
-                            const targetElement = document.getElementById(target);
-                            const targetPosition = targetElement.offsetTop;
-                            const windowHeight = window.innerHeight;
-                            
-                            if (scrollPosition >= targetPosition - windowHeight * 0.3) {
-                                step.classList.add('active');
-                            } else {
-                                step.classList.remove('active');
-                            }
-                        });
-                    }
-                });
-            }
-
-            // Load Lottie animations with medical themes
-            if(typeof bodymovin !== 'undefined') {
-                try {
-                    const medicalAnimations = {
-                        'lottie-patient-analysis': 'https://assets5.lottiefiles.com/packages/lf20_ky24lkyz.json', // Doctor animation
-                        'lottie-medical-strategy': 'https://assets5.lottiefiles.com/packages/lf20_5tkzkblw.json', // Strategy meeting
-                        'lottie-practice-growth': 'https://assets5.lottiefiles.com/packages/lf20_obhph3sh.json' // Growth chart
-                    };
-
-                    Object.keys(medicalAnimations).forEach(id => {
-                        const container = document.getElementById(id);
-                        if(container) {
-                            bodymovin.loadAnimation({
-                                container: container,
-                                renderer: 'svg',
-                                loop: true,
-                                autoplay: true,
-                                path: medicalAnimations[id]
-                            });
-                        }
-                    });
-                } catch (e) {
-                    console.log("Lottie animations failed to load, using fallback content");
-                }
-            }
-
-            // Interactive data points
-            const dataPoints = document.querySelectorAll('.data-point');
-            dataPoints.forEach(point => {
-                const tooltip = point.querySelector('.data-tooltip');
-                
-                point.addEventListener('mouseenter', () => {
-                    gsap.to(point, { 
-                        scale: 1.3, 
-                        duration: 0.3,
-                        ease: "back.out"
-                    });
-                    gsap.to(tooltip, { 
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.3 
-                    });
-                });
-                
-                point.addEventListener('mouseleave', () => {
-                    gsap.to(point, { 
-                        scale: 1, 
-                        duration: 0.3,
-                        ease: "back.in"
-                    });
-                    gsap.to(tooltip, { 
-                        opacity: 0,
-                        y: 8,
-                        duration: 0.3 
-                    });
-                });
-            });
-
-            // Patient journey interactions
-            const milestones = document.querySelectorAll('.journey-milestone');
-            milestones.forEach(milestone => {
-                const tooltip = milestone.querySelector('.milestone-tooltip');
-                
-                milestone.addEventListener('mouseenter', () => {
-                    gsap.to(milestone, {
-                        scale: 1.15,
-                        boxShadow: '0 0 0 10px rgba(58, 134, 255, 0.3)',
-                        duration: 0.3
-                    });
-                    gsap.to(tooltip, {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.3
-                    });
-                });
-                
-                milestone.addEventListener('mouseleave', () => {
-                    gsap.to(milestone, {
-                        scale: 1,
-                        boxShadow: '0 0 0 6px rgba(58, 134, 255, 0.2)',
-                        duration: 0.3
-                    });
-                    gsap.to(tooltip, {
-                        opacity: 0,
-                        y: 8,
-                        duration: 0.3
-                    });
-                });
-            });
-
-            // Animate CTA button
-            const ctaButton = document.querySelector('.cta-button');
-            if(ctaButton) {
-                ctaButton.addEventListener('mouseenter', () => {
-                    gsap.to(ctaButton, {
-                        y: -5,
-                        scale: 1.05,
-                        boxShadow: '0 15px 40px rgba(0, 0, 0, 0.25)',
-                        duration: 0.4,
-                        ease: "back.out"
-                    });
-                });
-                
-                ctaButton.addEventListener('mouseleave', () => {
-                    gsap.to(ctaButton, {
-                        y: 0,
-                        scale: 1,
-                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-                        duration: 0.4,
-                        ease: "back.in"
-                    });
-                });
-            }
-        });
     </script>
 </body>
 </html>
